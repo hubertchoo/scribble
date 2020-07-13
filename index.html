@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css"
+    />
+    <meta charset="UTF-8">
+    <style>
+        .icon_container {
+            height: 20vh;
+            padding-top: 2vh;
+            font-size: x-large;
+            text-align: center;
+            font-family: "Apple Chancery", cursive;
+            font-weight: bold;
+            color:lightgray;
+        }
+
+        .scribble_container {
+            padding-left: 2%;
+            padding-right: 2%;
+            height: 80vh
+        }
+
+        .scribble_area {
+            width: 100%;
+            height: 96%;
+            padding: 2%;
+            background-color: #1e1e1e;
+            border: none;
+            outline: none;
+            color: white;
+            resize: none;
+            overflow: auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+    </style>
+
+    </head>
+    <body style="background-color:#373737; position:fixed; width: 100%;">
+        <div class="icon_container">Scribble</div>
+        <div class="scribble_container">
+            <textarea class="scribble_area" id="scribble_area"></textarea>
+        </div>
+    </body>
+
+    <script src="render.js"></script>
+</html>

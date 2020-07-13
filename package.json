@@ -1,0 +1,14 @@
+{
+  "name": "scribble",
+  "version": "1.0.0",
+  "description": "A menubar utility for you to quickly scribble down the things you need.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^9.1.0",
+    "electron-store": "^5.2.0",
+    "menubar": "^9.0.1"
+  }
+}
