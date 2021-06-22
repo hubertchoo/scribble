@@ -44,10 +44,16 @@ mb.on('ready', () => {
 mb.on('after-create-window', () => {
   data = store.get('scribble');
   if(typeof data === 'undefined'){
-      store.set('scribble', '')
-      data = ''
+    store.set('scribble', '')
+    data = ''
   }
   //mb.window.webContents.openDevTools()
+  windowSize = store.get('windowSize')
+  if (typeof windowSize === 'undefined'){
+    windowSize = mb.window.getSize()
+    store.set('windowSize', windowSize)
+  }
+  mb.window.setSize(windowSize[0], windowSize[1])
   mb.window.webContents.send('fill_in_scribble', data)
 });
 
@@ -55,6 +61,7 @@ mb.on('after-create-window', () => {
 
 mb.on('focus-lost', () => {
     mb.window.webContents.send('save_scribble', '')
+    store.set('windowSize', mb.window.getSize())
 });
 
 ipcMain.on('save_scribble_from_render', (event, arg) => {
