@@ -6,11 +6,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css"
     />
+    
     <meta charset="UTF-8">
     <style>
+        .full_window{
+            background-color: #373737;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
         .icon_container {
-            height: 20vh;
-            padding-top: 2vh;
+            padding-top: 2%;
             font-size: x-large;
             text-align: center;
             font-family: "Apple Chancery", cursive;
@@ -19,28 +25,30 @@
         }
 
         .scribble_container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             padding-left: 2%;
             padding-right: 2%;
-            height: 80vh
+            padding-bottom: 2%;
         }
 
         .scribble_area {
-            width: 100%;
-            height: 96%;
+            flex: 1;
             padding: 2%;
             background-color: #1e1e1e;
             border: none;
             outline: none;
             color: white;
             resize: none;
-            overflow: auto;
+            overflow: scroll;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 18px;
         }
     </style>
 
     </head>
-    <body style="background-color:#373737; position:fixed; width: 100%;">
+    <body class="full_window">
         <div class="icon_container">Scribble</div>
         <div class="scribble_container">
             <textarea class="scribble_area" id="scribble_area"></textarea>

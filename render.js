@@ -1,4 +1,4 @@
-const {ipcRenderer, ipcMain} = require('electron');
+const {ipcRenderer} = require('electron');
 
 ipcRenderer.on('fill_in_scribble', (event, arg) => {
     document.getElementById('scribble_area').value = arg
