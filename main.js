@@ -14,7 +14,7 @@ let mb = menubar({
             nodeIntegration: true,
         }
     },
-    icon: "icon.png",
+    icon: __dirname + "/icon.png",
     preloadWindow: true,
 });
 
