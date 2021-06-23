@@ -17,7 +17,7 @@ let mb = menubar({
             nodeIntegration: true,
         }
     },
-    icon: __dirname + "/icon.png",
+    icon: __dirname + "/iconTemplate.png",
     preloadWindow: true,
 });
 
@@ -32,7 +32,7 @@ mb.on('ready', () => {
   // dynamically during resizing
   mb.window.once('will-resize', () =>{
     initial_x = mb.window.getPosition()[0] + mb.window.getSize()[0]/2
-    y = mb.window.getPosition()[1] //+ mb.window.getSize()[1]/2
+    y = mb.window.getPosition()[1]
   })
 
   mb.window.on('resize', () =>{
@@ -56,8 +56,6 @@ mb.on('after-create-window', () => {
   mb.window.setSize(windowSize[0], windowSize[1])
   mb.window.webContents.send('fill_in_scribble', data)
 });
-
-
 
 mb.on('focus-lost', () => {
     mb.window.webContents.send('save_scribble', '')

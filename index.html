@@ -9,8 +9,26 @@
     
     <meta charset="UTF-8">
     <style>
+        @media (prefers-color-scheme:dark){
+            :root{
+            --main-background: #373737;
+            --textarea-background : #1e1e1e;
+            --text-color: #ffffff;
+            --text-size: 18px;
+            --scribbletext-color: lightgray;
+            }
+        }
+        @media (prefers-color-scheme:light){
+            :root{
+            --main-background: #ffffff;
+            --textarea-background : #c9c9c9;
+            --text-color: #000000;
+            --text-size: 18px;
+            --scribbletext-color: #707070;
+            }
+        }
         .full_window{
-            background-color: #373737;
+            background-color: var(--main-background);
             display: flex;
             flex-direction: column;
             height: 100vh;
@@ -21,7 +39,8 @@
             text-align: center;
             font-family: "Apple Chancery", cursive;
             font-weight: bold;
-            color:lightgray;
+            color:var(--scribbletext-color);
+            vertical-align: middle;
         }
 
         .scribble_container {
@@ -36,24 +55,29 @@
         .scribble_area {
             flex: 1;
             padding: 10px;
-            background-color: #1e1e1e;
+            background-color: var(--textarea-background);
             border: none;
             outline: none;
-            color: white;
+            color: var(--text-color);
             resize: none;
             overflow: scroll;
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
+            font-size: var(--text-size);
         }
     </style>
 
     </head>
-    <body class="full_window">
-        <div class="icon_container">Scribble</div>
-        <div class="scribble_container">
-            <textarea class="scribble_area" id="scribble_area"></textarea>
+    <body >
+        <div class="full_window" id="scribble_page">
+            <div class="icon_container">
+                Scribble
+            </div>
+            <div class="scribble_container">
+                <textarea class="scribble_area" id="scribble_area"></textarea>
+            </div>
         </div>
     </body>
+    
 
     <script src="render.js"></script>
 </html>
