@@ -10,4 +10,4 @@ Scribble:
 * Dark or Light theme automatically matches OS native theme
 
 ![Scribble Preview](preview.png)
-![Scibble Preview Light Mode](preview.png)
+![Scibble Preview Light Mode](preview_light.png)
