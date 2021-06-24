@@ -1,6 +1,7 @@
 const { menubar } = require('menubar');
 const Store = require('electron-store');
-const ipcMain = require('electron').ipcMain
+const ipcMain = require('electron').ipcMain;
+const { app } = require('electron');
 
 const store = new Store();
 
@@ -21,6 +22,17 @@ let mb = menubar({
     preloadWindow: true,
 });
 
+app.setLoginItemSettings({
+  openAtLogin: true,
+  openAsHidden: true,
+})
+
+app.on('ready', () =>{
+  app.setLoginItemSettings({
+    openAtLogin: true,
+    openAsHidden: app.getLoginItemSettings().wasOpenedAsHidden
+  })
+})
 
 mb.on('ready', () => {
   console.log('app is ready');
@@ -61,6 +73,8 @@ mb.on('focus-lost', () => {
     mb.window.webContents.send('save_scribble', '')
     store.set('windowSize', mb.window.getSize())
 });
+
+
 
 ipcMain.on('save_scribble_from_render', (event, arg) => {
     store.set('scribble', arg)
